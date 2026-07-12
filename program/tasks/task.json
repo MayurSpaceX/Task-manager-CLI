@@ -1,18 +1,29 @@
 {
     "active": [
         {
-            "task": "test 1",
+            "task": "test",
             "status": "active",
             "priority": "high \u2b50",
-            "deadline": "12123123"
-        }
-    ],
-    "completed": [
+            "deadline": ""
+        },
         {
-            "task": "mark",
+            "task": "rest",
+            "status": "active",
+            "priority": "high \u2b50",
+            "deadline": ""
+        },
+        {
+            "task": "gaming",
+            "status": "active",
+            "priority": "medium \u2b50",
+            "deadline": ""
+        },
+        {
+            "task": "champion",
             "status": "active",
             "priority": "high \u2b50",
             "deadline": ""
         }
-    ]
+    ],
+    "completed": []
 }

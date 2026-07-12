@@ -97,8 +97,48 @@ class TaskCLI:
       for i, item in enumerate(active_task, start=1):
         deadline = item.get('deadline')
         print(f"\nID: {i}. task: {item['task']} || priority: {item['priority']} || deadline: {deadline if deadline else 'no deadline'} || status: {item['status']}".title())
-        
 
+    priority_type = self.task_list["active"]
+    print("\nyou can filter your task based on its priority".title())
+
+    see_priority = set()
+    j = 1
+    for priority in priority_type:
+      current_priority = priority['priority']
+
+      if current_priority in see_priority:
+        continue
+
+      see_priority.add(current_priority)  
+      print(f"{j}. {priority['priority']}")
+      j += 1 
+
+    num_list = {1: "high \u2b50", 2: "medium \u2b50", 3: "low \u2b50"}
+
+    while True:
+      user_input = input("enter your choice (or n to exit): ")
+      if user_input == 'n':
+        break
+      if user_input.isdigit():
+        take_input = int(user_input)  
+        if take_input not in  num_list:
+          print("try again!")
+          continue
+        search_key = num_list.get(take_input)
+  
+        for priority in priority_type:
+          if search_key == priority['priority']:
+            print(f'''
+            task: {priority['task']}
+            status: {priority['status']}    
+            priority: {priority['priority']}
+            daad line: {priority['deadline']}
+            ''')
+      else:
+       print("\ninvalid try again".title())
+
+   
+         
   def mark_complete(self):
     while True:
       self.show_tasks() 
